@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom global styles */
+body {
+  @apply bg-gray-50 text-gray-900 font-sans;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-rabat-primary-500 rounded-full;
+}
+
+/* Utility classes */
+.rabat-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.rabat-card {
+  @apply bg-white shadow-rabat-light rounded-rabat p-6;
+}
+
+.rabat-btn-primary {
+  @apply bg-rabat-primary-500 text-white hover:bg-rabat-primary-600 focus:ring-2 focus:ring-offset-2 focus:ring-rabat-primary-500;
+}
+
+.rabat-btn-secondary {
+  @apply bg-rabat-accent-50 text-rabat-primary-700 hover:bg-rabat-accent-100 focus:ring-2 focus:ring-offset-2 focus:ring-rabat-accent-500;
+}
+
+/* Animation utilities */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
