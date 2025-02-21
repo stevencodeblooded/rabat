@@ -2,7 +2,6 @@
 import axios from 'axios';
 
 const baseURL = 'https://awake-flying-gecko.glitch.me/api';
-console.log(baseURL)
 
 const apiClient = axios.create({
   baseURL: baseURL,
@@ -10,8 +9,6 @@ const apiClient = axios.create({
     'Content-Type': 'application/json'
   }
 });
-
-console.log('API URL before replace:', process.env.REACT_APP_API_BASE_URL);
 
 // Request interceptor for adding auth token
 apiClient.interceptors.request.use(
@@ -32,7 +29,6 @@ apiClient.interceptors.response.use(
   response => response,
   error => {
     const originalRequest = error.config;
-    console.log(originalRequest);
 
     // Handle specific error scenarios
     if (error.response) {

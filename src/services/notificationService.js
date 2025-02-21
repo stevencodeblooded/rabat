@@ -1,27 +1,25 @@
-// src/services/notificationService.js
-
 export const notificationService = {
-    success: (message, duration = 3000) => {
-      // In a real-world scenario, you might use a toast library
-      console.log(`SUCCESS: ${message}`);
-      
-      // Optional: Implement toast notification
-      alert(message);
-    },
-    
-    error: (message, duration = 3000) => {
-      // In a real-world scenario, you might use a toast library
-      console.error(`ERROR: ${message}`);
-      
-      // Optional: Implement toast notification
-      alert(message);
-    },
-    
-    warning: (message, duration = 3000) => {
-      // In a real-world scenario, you might use a toast library
-      console.warn(`WARNING: ${message}`);
-      
-      // Optional: Implement toast notification
-      alert(message);
+  success: (message, duration = 3000) => {
+    if (window.showToast) {
+      window.showToast.success(message);
+    } else {
+      console.log('Toast system not initialized');
     }
-  };
+  },
+  
+  error: (message, duration = 3000) => {
+    if (window.showToast) {
+      window.showToast.error(message);
+    } else {
+      console.error(`ERROR: ${message}`);
+    }
+  },
+  
+  warning: (message, duration = 3000) => {
+    if (window.showToast) {
+      window.showToast.warning(message);
+    } else {
+      console.warn(`WARNING: ${message}`);
+    }
+  }
+};

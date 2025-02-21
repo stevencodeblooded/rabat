@@ -6,6 +6,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import LoadingSpinner from './components/LoadingSpinner';
+import ToastManager from './components/notifications/ToastManager';
 
 // Lazy loaded pages
 const HomePage = lazy(() => import('./pages/HomePage'));
@@ -90,19 +91,22 @@ const AppRoutes = () => (
 
 function App() {
   return (
-    <Router>
-      <AuthProvider>
-        <div className="flex flex-col min-h-screen">
-          <Navbar />
-          <main className="flex-grow">
-            <Suspense fallback={<LoadingSpinner />}>
-              <AppRoutes />
-            </Suspense>
-          </main>
-          <Footer />
-        </div>
-      </AuthProvider>
-    </Router>
+    <>
+    <ToastManager />
+      <Router>
+        <AuthProvider>
+          <div className="flex flex-col min-h-screen">
+            <Navbar />
+            <main className="flex-grow">
+              <Suspense fallback={<LoadingSpinner />}>
+                <AppRoutes />
+              </Suspense>
+            </main>
+            <Footer />
+          </div>
+        </AuthProvider>
+      </Router>
+    </>
   );
 }
 

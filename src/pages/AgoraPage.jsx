@@ -120,6 +120,7 @@ const DiscussionThread = ({ topic, onClose }) => {
         setMessages(response.data);
       } catch (error) {
         console.error("Failed to fetch messages", error);
+        notificationService.error("Failed to fetch messages", error);
       }
     };
 
@@ -230,6 +231,8 @@ const AgoraPage = () => {
         setFilteredTopics(response.data);
       } catch (error) {
         console.error("Failed to fetch topics", error);
+        notificationService.error("Failed to fetch topics", error);
+
       }
     };
 
@@ -271,7 +274,7 @@ const AgoraPage = () => {
       setTopics((prev) => [response.data, ...prev]);
     } catch (error) {
       console.error("Failed to create topic", error);
-      // Optionally add user-facing error notification
+      notificationService.error("Failed to create topic", error);
     }
   };
 

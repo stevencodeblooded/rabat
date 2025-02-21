@@ -3,7 +3,6 @@ import { useNotifications } from '../components/NotificationProvider';
 
 export const authService = {
   async login(email, password) {
-    console.log('Base URL:', apiClient.defaults.baseURL);
     try {
       const response = await apiClient.post('/auth/login', { email, password });
       const { token, user } = response.data;

@@ -238,11 +238,7 @@ const MapPage = () => {
 
   const submitContribution = async (contributionData) => {
     try {
-      console.log("Submitting contribution:", contributionData);
-
       const response = await apiClient.post("/contributions", contributionData);
-
-      console.log("Contribution response:", response.data);
 
       if (
         response.data &&
